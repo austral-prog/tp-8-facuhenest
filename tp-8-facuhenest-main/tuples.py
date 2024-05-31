@@ -1,15 +1,19 @@
 def get_coordinate(record):
-    return record[1]
+    a, b = record
+    return b
+
 
 def convert_coordinate(coordinate):
-    return (coordinate[0], coordinate[1])
+    a, b = coordinate
+    return a, b
+
 
 def create_record(azara_record, rui_record):
-    treasure, azara_coord = azara_record
-    location, rui_coord, quadrant = rui_record
-    azara_converted_coord = convert_coordinate(azara_coord)
-    
-    if azara_converted_coord == rui_coord:
-        return (treasure, azara_coord, location, rui_coord, quadrant)
+    new_tuple = ()
+    a, b = azara_record
+    d, c, e = rui_record  
+    if convert_coordinate(b) == c:
+        new_tuple = azara_record + rui_record
+        return new_tuple
     else:
-        return "not a match"
+        return "not a match
